@@ -179,7 +179,7 @@ msgstr "Se déconnecter"
 #: udata_gouvfr/theme/templates/header.html:107
 #: udata_gouvfr/theme/templates/header.html:110
 msgid "Sign In / Register"
-msgstr "Connexion / Inscription"
+msgstr "Connexion"
 
 #: udata_gouvfr/theme/templates/home.html:20
 msgid "Best reuse cases"

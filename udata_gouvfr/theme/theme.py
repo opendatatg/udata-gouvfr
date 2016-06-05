@@ -19,29 +19,34 @@ log = logging.getLogger(__name__)
 RE_POST_IMG = re.compile(
     r'\<img .* src="https?:(?P<src>.+\.(?:png|jpg))" .* />(?P<content>.+)')
 
-
 gouvfr_menu = nav.Bar('gouvfr_menu', [
-    nav.Item(_('Discover OpenData'), 'gouvfr.faq', items=[
-        nav.Item(_('As a citizen'), 'gouvfr.faq', {'section': 'citizen'}),
-        nav.Item(_('As a producer'), 'gouvfr.faq', {'section': 'producer'}),
-        nav.Item(_('As a reuser'), 'gouvfr.faq', {'section': 'reuser'}),
-        nav.Item(_('As a developer'), 'gouvfr.faq', {'section': 'developer'}),
-    ]),
-    nav.Item(_('Data'), 'datasets.list', items=[
-        nav.Item(_('Datasets'), 'datasets.list'),
-        nav.Item(_('Reuses'), 'reuses.list'),
-        nav.Item(_('Organizations'), 'organizations.list'),
-    ]),
-    nav.Item(_('Dashboard'), 'site.dashboard'),
-    nav.Item(_('Events'), '#', url='#', items=[
-        nav.Item('Nec Mergitur', 'gouvfr.nec_mergitur'),
-        nav.Item('Climate Change Challenge (C³)',
-                 'gouvfr.climate_change_challenge'),
-        nav.Item('Dataconnexions', 'gouvfr.dataconnexions'),
-    ]),
+    nav.Item(_('Discover OpenData'), 'gouvfr.faq',
+             #          items=[
+             #     nav.Item(_('As a citizen'), 'gouvfr.faq', {'section': 'citizen'}),
+             #     nav.Item(_('As a producer'), 'gouvfr.faq', {'section': 'producer'}),
+             #     nav.Item(_('As a reuser'), 'gouvfr.faq', {'section': 'reuser'}),
+             #     nav.Item(_('As a developer'), 'gouvfr.faq', {'section': 'developer'}),
+             # ]
+             ),
+    nav.Item(_('Data'), 'datasets.list',
+             #          items=[
+             #     nav.Item(_('Datasets'), 'datasets.list'),
+             #     nav.Item(_('Reuses'), 'reuses.list'),
+             #     nav.Item(_('Organizations'), 'organizations.list'),
+             # ]
+             ),
+    # nav.Item(_('Dashboard'), 'site.dashboard'),
+    # nav.Item(_('Events'), '#', url='#', items=[
+    #     nav.Item('Nec Mergitur', 'gouvfr.nec_mergitur'),
+    #     nav.Item('Climate Change Challenge (C³)',
+    #              'gouvfr.climate_change_challenge'),
+    #     nav.Item('Dataconnexions', 'gouvfr.dataconnexions'),
+    # ]),
     # nav.Item('Dataconnexions', 'gouvfr.dataconnexions'),
-    nav.Item('Etalab', 'etalab', url='http://www.etalab.gouv.fr/'),
-    nav.Item('CADA', 'cada', url='http://cada.data.gouv.fr/'),
+
+    # selom comment
+    # nav.Item('Etalab', 'etalab', url='http://www.etalab.gouv.fr/'),
+    # nav.Item('CADA', 'cada', url='http://cada.data.gouv.fr/'),
 ])
 
 theme.menu(gouvfr_menu)
@@ -170,7 +175,7 @@ def get_discourse_posts():
             'last_posted_at': last_posted,
             'posters': [
                 users[u['user_id']] for u in topic['posters']
-            ]
+                ]
         })
 
     return topics
