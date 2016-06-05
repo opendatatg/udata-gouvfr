@@ -1,9 +1,231 @@
+<header id="tg-header">
+    <div id="tg-header-band-yellow">
+        <!---
+                <div class="dropdown" id="tg-lang-block">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Langues
+                    <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                </div>
+                --->
+    </div>
+    <div id="tg-header-band-white">
+            <div id="tg-logo-block">
+                <a href="{{ url_for('site.home') }}"><img src="/_themes/gouvfr/img/gouvtg.png"></a>
+            </div>
+            <div id="tg-thematic_search_lang-bar">
+                <div class="dropdown" id="tg-thematic-block">
+                    <!--
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Thématiques
+                    <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                    </ul>
+                    -->
+                    {% cache cache_duration, 'subnav-small-featured-topics', g.lang_code|default(config.DEFAULT_LANGUAGE)|string %}
+                    {# Topic chooser #}
+                    <!--
+                    <button class="dropdown-toggle btn-block btn" data-toggle="dropdown">
+                        {{ _('Topics') }}
+                        <span class="glyphicon glyphicon-chevron-down pull-right hidden-sm"></span>
+                    </button>
+                    -->
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    {{ _('Topics') }}
+                    <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="topics">
+                        {% for topic in g.featured_topics %}
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="{{ url_for('topics.display', topic=topic) }}">
+                                {{ topic.name }}
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% endcache %}
+                </div>
+                <div id="tg-search-block">
+                    <form action="{{ url_for('front.search') }}">
+                        <div class="input-group input-group-lg">
+                            <input id="main-search" name="q" type="search" class="form-control"
+                                autocomplete="off" placeholder="{{ _('Search') }}"
+                                value="{{request.args.q}}">
+                            <div class="input-group-btn">
+                                <button class="btn" type="submit"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="dropdown" id="tg-lang-block">
+                    <!--
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Langues
+                    <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                    -->
+                    {% if g.lang_code and request.url %}
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                <!--
+                                <img src="{{ theme_static('img/flags/{0}.png'.format(g.lang_code)) }}"
+                                    alt="Current locale flag"
+                                    width="16" height="16" />
+                                -->
+                                Langues
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                                {% for code, name in config['LANGUAGES'].items() %}
+                                <li>
+                                    <a class="tg-lang-name" href="{{ request.url.replace('/{0}/'.format(g.lang_code),'/{0}/'.format(code)) }}">
+                                        <!--
+                                        <img src="{{ theme_static('img/flags/{0}.png'.format(code)) }}"
+                                            alt="{{name}} flag"
+                                            width="16" height="16" />
+                                        -->
+                                        {{name}}
+                                    </a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                    {% endif %}
+                </div>
+            </div>
+            <div id="tg-main-menu-bar">
+                <!--
+                <ul id="tg-main-menu">
+                        <li class="">
+                            <a href="/fr/faq/">Discover OpenData</a>
+                            <ul class="" role="">
+                                <li><a href="/fr/faq/citizen/">As a citizen</a></li>
+                                <li><a href="/fr/faq/producer/">As a producer</a></li>
+                                <li><a href="/fr/faq/reuser/">As a reuser</a></li>
+                                <li><a href="/fr/faq/developer/">As a developer</a></li>
+                            </ul>
+                        </li>
+                        <li class="">
+                            <a href="/fr/datasets/">Données</a>
+                            <ul class="" role="menu">
+                                <li><a href="/fr/datasets/">Jeux de données</a></li>
+                                <li><a href="/fr/reuses/">Réutilisations</a></li>
+                                <li><a href="/fr/organizations/">Organisations</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/fr/dashboard/">Tableau de bord</a>
+
+                        </li>
+                        <li class="">
+                            <a href="#">Events</a>
+                            <ul class="" role="menu">
+                                <li><a href="/fr/nec-mergitur">Nec Mergitur</a></li>
+                                <li><a href="/fr/climate-change-challenge">Climate Change Challenge (C³)</a></li>
+                                <li><a href="/fr/dataconnexions/">Dataconnexions</a></li>
+                            </ul>
+                        </li>
+                </ul>
+                -->
+                <ul id="tg-main-menu">
+                    {% for item in current_theme.menu %}
+                    <li {% if item.items %}class=""{% endif %}>
+                        <a href="{{ item.url }}">{{ item.label }}</a>
+                        {% if item.items %}
+                        <ul class="">
+                            {% for subitem in item.items %}
+                            <li><a href="{{ subitem.url }}">{{ subitem.label }}</a></li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+                <ul id="tg-login">
+                    {% if current_user.is_authenticated %}
+                    <li class="dropdown">
+                        <div id="tg-login-params-toggler" class="dropdown-toggle" data-toggle="dropdown">
+                            <span class="tg-user-name">{{ current_user.fullname }} </span>
+                            <img class="tg-user-avatar" src="{{ current_user|avatar_url(30) }}" width="30" height="30" alt="{{ current_user.fullname }}" />
+                        </div>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="{{ url_for('users.show', user=current_user) }}">
+                                    <span class="fa fa-fw fa-user"></span>
+                                    {{ _('My profile') }}
+                                </a>
+                            </li>
+                            {% if current_user.organizations %}
+                            <li role="presentation" class="dropdown-header">{{ _('Organizations') }}</li>
+                            {% for org in current_user.organizations %}
+                            <li>
+                                <a href="{{ url_for('organizations.show', org=org) }}">
+                                    <img src="{{ org.logo(20)|placeholder('organization') }}"
+                                        width="20" height="20" alt="{{ org.acronym or org.name }}"/>
+                                    {{ org.acronym or org.name }}
+                                </a>
+                            </li>
+                            {% endfor %}
+                            <li class="divider"></li>
+                            {% endif %}
+                            <li>
+                                <a href="{{ url_for('admin.index') }}">
+                                    <span class="fa fa-fw fa-wrench"></span>
+                                    {{ _('Administration') }}
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="{{ url_for('security.logout') }}">
+                                    <span class="fa fa-fw fa-sign-out"></span>
+                                    {{ _('Logout') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    {% endif %}
+                    <!--
+                    <li>
+                        <a title="{{ _('Sign In / Register') }}"
+                            href="{{ url_for('security.login', next=request.url) }}">
+                            <span class="glyphicon glyphicon-log-in"></span>
+                            {{ _('Sign In / Register') }}
+                        </a>
+                    </li>
+                    -->
+                </ul>
+
+            </div>
+    </div>
+
+</header>
+<!--
 <section class="header">
+-->
     <!--[if lte IE 8]>
     <div class="iewarning">
         {{ _('Internet Explorer 8 and below are not anymore supported. Please upgrade or change your browser to access the website.') }} <a href="http://browsehappy.com/">{{ _('More information →')}}</a>
     </div>
     <![endif]-->
+<!--
     <div class="container">
         <nav class="navbar navbar-default navbar-static-top">
             <header class="navbar-header">
@@ -20,7 +242,8 @@
         </nav>
     </div>
 </section>
-
+-->
+<!--
 <section class="topmenu collapse navbar-collapse">
     <div class="container">
         <nav class="navbar navbar-default navbar-static-top">
@@ -115,3 +338,4 @@
         </nav>
     </div>
 </section>
+-->

@@ -1,0 +1,40 @@
+section.form {
+    background-color: #F7F7F7;
+    background-image: none;
+    padding: 30px;
+
+    /*button[type="submit"]{
+        background-color: @tg-yellow;
+        background-color: @tg-green-bright;
+    }*/
+    .form-horizontal {
+        .btn{
+            background-color: @tg-green-bright;
+            &:hover{
+               background-color: @tg-green-dark;
+            }
+
+        }
+        p a{
+            color: @tg-green-dark;
+        }
+       // background-color: @tg-yellow;
+    }
+    .form-bg {
+        padding: 10px 25px 25px 25px;
+        border-radius: 3px;
+        //background-color: fadeout(@bg-light, 30%);
+        .nav-pills {
+            margin-top: 0;
+            margin-bottom: 20px;
+
+            > li:not(.active) > a {
+                //color: @gray-light;
+            }
+
+            > li > a:hover {
+                //color: @gray;
+            }
+        }
+    }
+}

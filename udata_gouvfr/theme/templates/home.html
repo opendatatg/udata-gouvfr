@@ -2,11 +2,17 @@
 
 {% set body_class = 'home' %}
 
+{#
 {% block subnav %}
     {% include theme('subnav-large.html') %}
 {% endblock %}
+#}
 
 {% block content %}
+<section id="welcome-text-bar">
+    <div class="welcome-text-bold">Bienvenue sur le site des données ouvertes du Togo.</div>
+    <div class="welcome-text-simple">Vous y trouverez les données et ressources mises à disposition par l'administration</div>
+</section>
 {% cache cache_duration, 'home', g.lang_code %}
 {# Carousels section #}
 <section class="default">

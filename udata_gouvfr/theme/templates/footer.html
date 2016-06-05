@@ -1,5 +1,7 @@
 {% cache cache_duration, 'footer', g.lang_code|default(config.DEFAULT_LANGUAGE)|string %}
+<!---
 <section class="footer">
+
     <div class="container">
         <footer class="row">
 
@@ -20,6 +22,7 @@
                     {% endfor %}
                 </ul>
             </section>
+
             <section class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
                 <h5>{{ _('Topics') }}</h5>
                 <ul>
@@ -87,4 +90,57 @@
         </footer>
     </div>
 </section>
+-->
+<div id="tg-footer">
+    <div id="tg-footer-bright-green-band">
+            Data.gouv.tg
+        <!--
+        <div id="tg-social-bar">
+            <a class="tg-social-item" href="#"><i class="fa fa-4x fa-twitter"></i></a>
+            <a class="tg-social-item" href="#"><i class="fa fa-4x fa-github"></i></a>
+        </div>
+        -->
+    </div>
+    <div id="tg-footer-dark-green-band">
+        <div id="tg-footer-dark-green-band-container">
+            <div id="tg-footer-logo-block">
+                <a href="{{ url_for('site.home') }}"><img src="/_themes/gouvfr/img/gouvtg.png"></a>
+            </div>
+            <div class="tg-footer-links-block">
+                <ul>
+                    <span class="tg-footer-links-title">Sites du gouvernement</span>
+                    <li><a href="http://togo.gouv.tg/fr">togo.gouv.tg</a></li>
+                    <li><a href="http://presidence.gouv.tg">presidence.gouv.tg</a></li>
+                    <li><a href="http://primature.gouv.tg">primature.gouv.tg</a></li>
+                    <li><a href="http://numerique.gouv.tg">numerique.gouv.tg</a></li>
+
+                </ul>
+            </div>
+            <div id="tg-social-block">
+                <a href="#" class="tg-social-item"><i class="fa fa-4x fa-twitter"></i><span>Twitter</span></a>
+                <a href="#" class="tg-social-item"><i class="fa fa-4x fa-github"></i><span>Github</span></a>
+            </div>
+            <div class="tg-footer-links-block">
+                <ul>
+                    <li><a href="#">Conditions d'utilisation</a></li>
+                    <li><a href="{{ url_for('security.login', next=request.url) }}">Connexion</a></li>
+                </ul>
+            </div>
+            <!--
+            <div>
+                Data.gouv.tg
+            </div>
+            -->
+        </div>
+    </div>
+    <!--
+    <div id="tg-footer-container">
+        <div id="tg-social-bar">
+            <a class="tg-social-item"><i class="fa fa-twitter"></i><span>twitter</span></a>
+        </div>
+    </div>
+    -->
+    <a  id="tg-back-top" href="#" title="{{ _('Back to top') }}"><i class="fa fa-chevron-up"></i></div></a>
+
+</div>
 {% endcache %}
