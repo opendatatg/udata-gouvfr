@@ -60,7 +60,7 @@
                 </div>
                 <div id="tg-search-block">
                     <form action="{{ url_for('front.search') }}">
-                        <div class="input-group input-group-lg">
+                        <div class="input-group input-group-md">
                             <input id="main-search" name="q" type="search" class="form-control"
                                 autocomplete="off" placeholder="{{ _('Search') }}"
                                 value="{{request.args.q}}">
@@ -166,7 +166,7 @@
                             <span class="tg-user-name">{{ current_user.fullname }} </span>
                             <img class="tg-user-avatar" src="{{ current_user|avatar_url(30) }}" width="30" height="30" alt="{{ current_user.fullname }}" />
                         </div>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu dropdown-menu-right">
                             <li>
                                 <a href="{{ url_for('users.show', user=current_user) }}">
                                     <span class="fa fa-fw fa-user"></span>

@@ -1,13 +1,36 @@
 /*home page last datasets list */
+.tg-last-datasets-title{
+    color: @tg-green-org;
+    text-transform: uppercase;
+    font-family: Raleway;
+    font-weight: 700;
+    padding-bottom: 15px;
+}
+
+.tg-home-last-datasets, .organization-container {
+    .card dataset-card{
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    .card-body h4 a{
+        font-family: "Raleway";
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: @tg-green-org;
+        text-transform: uppercase;
+        line-height: 120%;
+    }
+
+}
 #editorial-datasets .btn-more{
-    border: 1px solid @tg-green-bright-1;
-    border-radius: 5px;
+    border: 1px solid @tg-green-org;
+    //border-radius: 5px;
     color: #FFF;
-    background-color: @tg-green-bright-1;
+    background-color: @tg-green-org;//@tg-green-bright-1;
     margin-top: 10px;
     margin-bottom: 30px;
     &:hover{
         background-color: @tg-green-bright;
+        border-color: @tg-green-bright;
     }
 }
 /*pagination*/
@@ -25,33 +48,47 @@
      }
 }
 
-.breadcrumb-bar {
-    .breadcrumb .glyphicon-home{
-        color: @tg-green-bright-1;
-        &:hover{
-            color: @tg-green-bright;
-        }
-    }
-    #export-btn{
-        background-color: @tg-green-bright-1;
-        &:hover{
-            background-color: @tg-green-bright;
-        }
-    }
-}
-
-.card.dataset-card {
-    border-bottom: 2px solid @tg-green-bright-1;
-}
-
-/* dataset details */
-.opinion .btn-primary{
-    background-color: @tg-green-bright-1;
+#tg-btn-color(){
+    background-color: @tg-green-org;
+    color: #FFF;
     &:hover{
         background-color: @tg-green-bright;
     }
 }
 
+.breadcrumb-bar {
+    .breadcrumb .glyphicon-home{
+        color: @tg-green-org;
+        &:hover{
+            color: @tg-green-bright;
+        }
+    }
+    #export-btn{
+        #tg-btn-color();
+    }
+    .btn-warning,.btn-default{
+        #tg-btn-color();
+    }
+}
+
+.card.dataset-card {
+    border-bottom: 2px solid @tg-green-org;
+}
+
+/* dataset details */
+.opinion .btn-primary{
+    background-color: @tg-green-org;
+    &:hover{
+        background-color: @tg-green-bright;
+    }
+}
+
+#tg-information-panel .btn-extras{
+    background-color: @tg-green-org;
+    &:hover{
+        background-color: @tg-green-bright;
+    }
+}
 /* reuse details */
 body.reuse-display .reuse-section.source-section header{
     background-color: @tg-green-bright-1;
@@ -74,10 +111,10 @@ body.reuse-display .reuse-section.community-section .btn-toolbar {
 }
 
 #datasets-download-btn{
-    border: 1px solid @tg-green-bright-1;
-    border-radius: 5px;
+    //border: 1px solid @tg-green-org;
+    //border-radius: 5px;
     color: #FFF;
-    background-color: @tg-green-bright-1;
+    background-color: @tg-green-org;
     margin-top: 10px;
     margin-bottom: 30px;
     &:hover{

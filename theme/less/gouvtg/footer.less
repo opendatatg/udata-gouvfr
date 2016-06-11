@@ -10,8 +10,12 @@
         }
     }
     */
+    #tg-footer-container{
+        max-width: 1200px;
+        margin: 0 auto;
+    }
     #tg-footer-bright-green-band{
-        background-color:#4EB973;
+        background-color: transparent;
         //background-color: #F9E184;
         padding: 15px;
         color: #FFFFFF;
@@ -19,37 +23,36 @@
         font-size: 2rem;
         text-align: center;
         //#4EB973
-        /*
+
         #tg-social-bar{
-            max-width: 1200px;
+            //max-width: 1200px;
             text-align: center;
-            padding: 15px 20px;
+            //padding: 15px 20px;
+            font-size: 1.2rem;
+            font-family: Raleway;
+            color: @tg-footer-text-color;
+            font-weight: 700;
             margin: 0 auto;
             .tg-social-item{
                 display: inline-block;
                 margin-left: 15px;
                 vertical-align: middle;
-                color: white;
+                color: @tg-green-org;
                 &:hover{
-                    color: @tg-green-dark;
+                    color: @tg-green-bright;
                 }
             }
         }
-        */
+
     }
     #tg-footer-dark-green-band{
         display: inline-block;
         width: 100%;
-        background-color: @tg-green-bright;
+        background-color: @tg-footer-bg-color; //@tg-green-bright;
         #tg-footer-dark-green-band-container{
-            max-width: 1200px;
-            padding: 30px 20px;
+            //max-width: 1200px;
+            padding: 30px 20px 50px 20px ;
             margin: 0 auto;
-            #tg-footer-logo-block{
-                display: inline-block;
-                filter: grayscale(1);
-                vertical-align: top;
-            }
             .tg-footer-links-block{
                 vertical-align: top;
                 display: inline-block;
@@ -58,9 +61,12 @@
                     padding-bottom: 20px;
                     display: inline-block;
                     vertical-align: top;
+                    padding-right: 30px;
+                    font-family: Raleway;
+                    font-size: 1.3rem;
                     .tg-footer-links-title{
                         text-transform: uppercase;
-                        color: @tg-white;
+                        color: @tg-footer-text-color;//@tg-white;
                         margin: 0;
                         font-weight: bold;
                         font-size: 1.4rem;
@@ -69,18 +75,20 @@
                     li{
                         padding-top: 15px;
                         a{
-                            color: @tg-white;;//#ECECEC;
+                            color: @tg-footer-text-color;//@tg-white;;//#ECECEC;
                             text-decoration: none;
-                            font-size: 1.6rem;
+                            font-size: 1.3rem;
                             &:hover{
 
-                              color: @tg-yellow;
+                              //color: @tg-yellow;
+                              text-decoration: underline;
                             }
                         }
                     }
 
                 }
             }
+            /*
             #tg-social-block{
                 //max-width: 1200px;
                 //text-align: center;
@@ -108,6 +116,7 @@
                     }
                 }
             }
+            */
         }
         //background-color: #FBD959;
 
@@ -134,4 +143,29 @@
         }
     }
 
+    #tg-footer-bottom{
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        height: 100px;
+        #tg-footer-logo-block{
+             display: inline-block;
+            position: absolute;
+            left: 50%;
+            width: 110px;
+            margin-left: -55px;
+            top: -45px;
+        }
+        .struct{
+            display: inline-block;
+            height: 100%;
+            width: 0;
+            vertical-align: middle;
+        }
+        #tg-copyright{
+           display: inline-block;
+           vertical-align: middle;
+        }
+
+    }
 }

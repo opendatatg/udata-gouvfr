@@ -1,5 +1,9 @@
 html {
     font-size: 62.5%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    body{
+        background: none #e7eced;
+    }
 }
 #tg-header{
     border-bottom: 2px solid #EBECED;
@@ -12,6 +16,8 @@ html {
 
 #tg-header-band-white{
     background-color: @tg-white;
+    padding-left: 15px;
+    padding-right: 15px;
     //max-width: 1200px;
     //margin: 0 auto;
     #tg-logo-block{
@@ -45,11 +51,11 @@ html {
             margin-right: 15px;
             width: 400px;
             button{
-                background-color: @tg-yellow;
+                background-color: @tg-green-org;//background-color: @tg-yellow;
                 color: #FFFFFF;
             }
             #main-search{
-                border: 1px solid @tg-yellow;
+                border: 1px solid @tg-green-org;//@tg-yellow;
                 &,&:focus{
                     box-shadow: none;
                 }
@@ -86,7 +92,7 @@ html {
         white-space: nowrap;
         color: @black-header;
         &:hover{
-            color: @tg-green-bright;
+            color: @tg-green-org;//@tg-green-bright;
         }
     }
     #tg-main-menu{
@@ -94,13 +100,34 @@ html {
         padding: 0px;
         display: inline-block;
         float: left;
+        a{
+            color: #000;
+            &:hover{
+                color: @tg-red-menu-org;
+            }
+        }
         &>li{
             display: inline-block;
             vertical-align: top;
             position: relative;
+            &:not(:first-child){
+                &:before{
+                 border-left: 2px solid #C9CAC9;
+                 content: " ";
+                 width: 0px;
+                 position: absolute;
+                 height: 50%;
+                 display: inline-block;
+                     top: 25%;
+                }
+            }
             &>a{
-                font-size: 1.4rem;
-                padding: 10px 7px;
+                font-size: 1.1rem;
+                //padding: 10px 7px;
+                padding: 10px;
+                text-transform: uppercase;
+                font-family: "Raleway";
+                font-weight: 700;
             }
             &:hover>ul{
                 display: block;
@@ -146,14 +173,17 @@ html {
     }
 }
 
-#tg-header-band-white, #welcome-text-bar{
+#tg-header-band-white, #welcome-text-bar,#tg-header-band-yellow{
    max-width: 1200px;
    margin: 0 auto;
+   @media all and (max-width : 1225px) {
+    max-width: 95%;
+   }
 }
 
 #welcome-text-bar{
     text-align: center;
-    background-color: @tg-green-bright;
+    background-color: @tg-green-org;//@tg-green-bright;
     padding: 30px 20px;
     color: white;
 
@@ -165,4 +195,113 @@ html {
         font-size: 1.6rem;
     }
 
+}
+
+/** globals **/
+section{
+    &.default,&.breadcrumb-bar,&content{
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    &.default{
+        background-color: #FFF;
+    }
+
+}
+.dataset-display {
+    .dataset-container .page-header h2{
+        .tg-page-title();
+    }
+    section.content{
+        max-width: 1200px;
+        margin: 0 auto;
+        background-color: #FFF !important;
+    }
+
+}
+
+
+.tg-page-title{
+
+    color: @tg-green-org;
+    font-weight: 900;
+    font-size: 30px;
+    color: @tg-green-org;
+    line-height: 120%;
+    font-family: 'Raleway';
+    text-transform: uppercase;
+    position: relative;
+    text-align:left;
+    padding: 0 0 9px;
+    &:before {
+        content: " ";
+        display: block;
+        position: absolute;
+        width: 130px;
+        height: 8px;
+        background: none @tg-green-org;
+        left: 0;
+        top: auto;
+        bottom: 0;
+    }
+
+}
+
+/*dataset*/
+ul.search-results .search-result{
+    .result-body{
+        .result-title{
+            font-family: "Raleway";
+            font-weight: 900;
+            font-size: 15px;
+            color: @tg-green-org;
+            display: block;
+            text-transform: uppercase;
+            line-height: 120%;
+            //padding: 9px 0 0;
+        }
+        .result-description{
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 14px;
+            color: #4d4e4d;
+            font-weight: normal;
+            display: block;
+            line-height: 18px;
+        }
+    }
+    .result-infos {
+        padding-top: 10px;
+        .btn{
+            font-family: "Raleway-Medium";
+            font-weight: normal;
+            font-size: 13px;
+            color: #969696;
+            display: block;
+            text-transform: lowercase;
+            line-height: 120%;
+            //padding: 0 0 5px;
+        }
+    }
+
+}
+
+/*carrousel*/
+#home-carousel {
+    height: 362px;
+}
+
+#home-carousel .carousel-caption {
+    background-color: #FFF;
+    height: 50px;
+    padding-left: 30px;
+    .title span{
+        line-height: 20px;
+        color: @tg-green-org;
+        font-family: Raleway;
+        font-weight: 800;
+        text-transform: uppercase;
+        text-overflow:ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
 }

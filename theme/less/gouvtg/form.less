@@ -2,21 +2,22 @@ section.form {
     background-color: #F7F7F7;
     background-image: none;
     padding: 30px;
-
+    max-width: 1200px;
+    margin: 0 auto;
     /*button[type="submit"]{
         background-color: @tg-yellow;
         background-color: @tg-green-bright;
     }*/
     .form-horizontal {
         .btn{
-            background-color: @tg-green-bright;
+            background-color: @tg-green-org;
             &:hover{
-               background-color: @tg-green-dark;
+               background-color: @tg-green-bright;
             }
 
         }
         p a{
-            color: @tg-green-dark;
+            color: @tg-green-org;
         }
        // background-color: @tg-yellow;
     }
@@ -37,4 +38,11 @@ section.form {
             }
         }
     }
+}
+
+input[type=checkbox], input[type=radio] {
+     margin: 0;
+}
+.form-horizontal .checkbox, .form-horizontal .checkbox-inline, .form-horizontal .radio, .form-horizontal .radio-inline {
+    padding-top: 0;
 }
